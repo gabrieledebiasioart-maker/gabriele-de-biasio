@@ -1917,9 +1917,7 @@
     const navById = {};
     navLinkEls.forEach(link => {
       const id = (link.getAttribute('href') || '').replace('#', '');
-      if (id) {
-        navById[id] = link;
-      }
+      if (id) navById[id] = link;
     });
 
     if ('IntersectionObserver' in window) {
@@ -1928,9 +1926,7 @@
           if (entry.isIntersecting) {
             const id = entry.target.id;
             Object.values(navById).forEach(l => l.classList.remove('active'));
-            if (navById[id]) {
-              navById[id].classList.add('active');
-            }
+            if (navById[id]) navById[id].classList.add('active');
           }
         });
       }, {
@@ -1957,10 +1953,38 @@
         tab.classList.add('active');
         tab.setAttribute('aria-selected', 'true');
         const pane = document.getElementById(targetId);
-        if (pane) {
-          pane.classList.add('active');
-        }
+        if (pane) pane.classList.add('active');
       });
+    });
+
+    // ---------------------------
+    // AUTO TITOLI (solo se vuoti)
+    // ---------------------------
+    const humanizeTitleFromFilename = (src) => {
+      const file = (src || "").split("/").pop() || "";
+      const noExt = file.replace(/\.[^.]+$/, "");         // via estensione
+      const noNum = noExt.replace(/^\d+_?/, "");          // via "01_" o "01"
+      const spaced = noNum.replace(/[_-]+/g, " ").trim(); // _ e - -> spazi
+      return spaced ? spaced.charAt(0).toUpperCase() + spaced.slice(1) : "";
+    };
+
+    // Eccezioni manuali (se vuoi): chiave = filename SENZA estensione
+    const customTitles = {
+      // "21_tracce_di_passaggio": "Tracce di passaggio",
+      // "24_il_silenzio_che_resta": "Il silenzio che resta"
+    };
+
+    document.querySelectorAll(".gallery-item").forEach((item) => {
+      const img = item.querySelector("img");
+      const caption = item.querySelector(".gallery-caption-text");
+      if (!img || !caption) return;
+
+      // NON sovrascrivere titoli già scritti
+      if (caption.textContent.trim()) return;
+
+      const src = img.getAttribute("data-full") || img.getAttribute("src") || "";
+      const key = (src.split("/").pop() || "").replace(/\.[^.]+$/, ""); // filename senza estensione
+      caption.textContent = customTitles[key] || humanizeTitleFromFilename(src);
     });
 
     // Gallery lightbox
@@ -2023,41 +2047,28 @@
       });
     });
 
-    if (closeBtn) {
-      closeBtn.addEventListener('click', closeLightbox);
-    }
-    if (prevBtn) {
-      prevBtn.addEventListener('click', showPrev);
-    }
-    if (nextBtn) {
-      nextBtn.addEventListener('click', showNext);
-    }
+    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+    if (prevBtn) prevBtn.addEventListener('click', showPrev);
+    if (nextBtn) nextBtn.addEventListener('click', showNext);
 
     if (lightbox) {
       lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
-          closeLightbox();
-        }
+        if (e.target === lightbox) closeLightbox();
       });
     }
 
     document.addEventListener('keydown', (e) => {
       if (!lightbox || !lightbox.classList.contains('open')) return;
-      if (e.key === 'Escape') {
-        closeLightbox();
-      } else if (e.key === 'ArrowRight') {
-        showNext();
-      } else if (e.key === 'ArrowLeft') {
-        showPrev();
-      }
+      if (e.key === 'Escape') closeLightbox();
+      else if (e.key === 'ArrowRight') showNext();
+      else if (e.key === 'ArrowLeft') showPrev();
     });
 
     // Footer year
     const yearEl = document.getElementById('year');
-    if (yearEl) {
-      yearEl.textContent = new Date().getFullYear();
-    }
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
   });
 </script>
+
 </body>
 </html>
