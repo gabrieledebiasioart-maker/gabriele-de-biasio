@@ -1,0 +1,2063 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Gabriele De Biasio – Fotografia di Paesaggio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio di Gabriele De Biasio, artista e fotografo italiano. Paesaggi d'acqua, lagune e nebbie tra quiete, riflessione e memoria.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-elevated: #020617;
+      --bg-card: rgba(15,23,42,0.9);
+      --bg-soft: rgba(15,23,42,0.75);
+      --accent: #38BDF8;
+      --accent-strong: #06B6D4;
+      --accent-soft: rgba(56,189,248,0.18);
+      --accent-soft-strong: rgba(56,189,248,0.85);
+      --text-primary: #F9FAFB;
+      --text-muted: #9CA3AF;
+      --border-soft: rgba(148,163,184,0.45);
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-full: 999px;
+      --shadow-soft: 0 22px 50px rgba(15,23,42,0.9);
+      --transition-fast: 160ms ease-out;
+      --transition-med: 240ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(140% 140% at 10% 0%, #0EA5E9 0, #020617 40%, #020617 100%);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+      color: inherit;
+      background: none;
+      border: none;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .main {
+      padding-top: 4.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      .main {
+        padding-top: 5rem;
+      }
+    }
+
+    .section {
+      padding: 5rem 0 4.5rem;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .section {
+        padding: 6rem 0 5.5rem;
+      }
+    }
+
+    .section-header {
+      margin-bottom: 2.75rem;
+      max-width: 640px;
+    }
+
+    .section-kicker {
+      font-size: 0.75rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--accent-soft-strong);
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.25rem);
+      letter-spacing: -0.04em;
+      margin: 0 0 0.7rem;
+    }
+
+    .section-intro {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* Header & nav */
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 40;
+      background: linear-gradient(to bottom, rgba(15,23,42,0.95), rgba(15,23,42,0.7), transparent);
+      border-bottom: 1px solid rgba(148,163,184,0.25);
+      backdrop-filter: blur(18px);
+      transition: background 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+    }
+
+    .site-header.scrolled {
+      background: rgba(15,23,42,0.97);
+      border-bottom-color: rgba(148,163,184,0.5);
+      box-shadow: 0 18px 45px rgba(15,23,42,0.9);
+    }
+
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.85rem 0.5rem;
+      position: relative;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      z-index: 5;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-full);
+      background: radial-gradient(circle at 30% 0%, #38BDF8, #0F172A);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #F9FAFB;
+      box-shadow: 0 12px 36px rgba(56,189,248,0.6);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .logo-subtitle {
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      font-size: 0.88rem;
+    }
+
+    .nav-link {
+      position: relative;
+      text-decoration: none;
+      color: var(--text-muted);
+      padding: 0.2rem 0;
+      transition: color var(--transition-fast);
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 -0.3rem 0;
+      height: 1px;
+      border-radius: 999px;
+      background: linear-gradient(to right, transparent, var(--accent), transparent);
+      opacity: 0;
+      transform: scaleX(0.6);
+      transform-origin: center;
+      transition: opacity var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav-link:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-link:hover::after {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+
+    .nav-link.active {
+      color: var(--accent);
+    }
+
+    .nav-link.active::after {
+      opacity: 1;
+      transform: scaleX(1);
+      background: linear-gradient(to right, rgba(56,189,248,0.1), var(--accent), rgba(56,189,248,0.1));
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-full);
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(148,163,184,0.6);
+      background: rgba(15,23,42,0.9);
+      box-shadow: 0 12px 30px rgba(15,23,42,0.96);
+      color: #E5E7EB;
+      z-index: 5;
+      transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav-toggle:hover {
+      border-color: rgba(56,189,248,0.9);
+      background: rgba(15,23,42,1);
+      transform: translateY(-1px);
+    }
+
+    .nav-toggle-lines {
+      position: relative;
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: #E5E7EB;
+      transition: transform var(--transition-med), background var(--transition-med);
+    }
+
+    .nav-toggle-lines::before,
+    .nav-toggle-lines::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: #E5E7EB;
+      transition: transform var(--transition-med), opacity var(--transition-med), top var(--transition-med);
+    }
+
+    .nav-toggle-lines::before {
+      top: -5px;
+    }
+
+    .nav-toggle-lines::after {
+      top: 5px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        inset: calc(100% - 0.3rem) 1.5rem auto 1.5rem;
+        background: rgba(15,23,42,0.98);
+        border-radius: 18px;
+        border: 1px solid rgba(148,163,184,0.7);
+        box-shadow: 0 18px 60px rgba(15,23,42,0.98);
+        padding: 0.8rem 1.05rem 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.55rem;
+        transform-origin: top;
+        transform: scaleY(0.8) translateY(-10px);
+        opacity: 0;
+        pointer-events: none;
+        max-height: 0;
+        overflow: hidden;
+        backdrop-filter: blur(18px);
+      }
+
+      .site-header.nav-open .nav-links {
+        opacity: 1;
+        pointer-events: auto;
+        max-height: 260px;
+        transform: scaleY(1) translateY(0);
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .nav-link {
+        width: 100%;
+        padding: 0.35rem 0.1rem;
+      }
+
+      .site-header.nav-open .nav-toggle-lines {
+        transform: rotate(45deg);
+      }
+
+      .site-header.nav-open .nav-toggle-lines::before {
+        top: 0;
+        transform: rotate(-90deg) translateX(-4px);
+      }
+
+      .site-header.nav-open .nav-toggle-lines::after {
+        opacity: 0;
+        transform: translateY(-4px);
+      }
+    }
+
+    /* Hero */
+    .hero {
+      padding: 4.5rem 0 3.75rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -160px -160px auto auto;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(59,130,246,0.7), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto auto -260px -160px;
+      width: 520px;
+      height: 520px;
+      background:
+        radial-gradient(circle at 20% 80%, rgba(56,189,248,0.22), transparent 60%);
+      opacity: 1;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    .hero-inner {
+      position: relative;
+      display: grid;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    @media (min-width: 900px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+        gap: 3.5rem;
+      }
+    }
+
+    @media (max-width: 899.98px) {
+      .hero {
+        padding-top: 3.8rem;
+      }
+
+      .hero-inner {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .hero-media {
+        order: -1;
+        margin-bottom: 1.8rem;
+      }
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      margin-bottom: 0.9rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--accent-soft-strong);
+      font-weight: 500;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+      margin: 0 0 1rem;
+    }
+
+    .hero-subtitle {
+      max-width: 32rem;
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.75rem;
+      margin: 1.6rem 0 2.2rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius-full);
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.6);
+      box-shadow: 0 12px 35px rgba(15,23,42,0.95);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-meta-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px rgba(56,189,248,0.35);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem 1.1rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.42rem;
+      padding: 0.7rem 1.4rem;
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform var(--transition-med), box-shadow var(--transition-med), background var(--transition-med), border-color var(--transition-med), color var(--transition-med);
+    }
+
+    .btn-primary {
+      border: 1px solid rgba(56,189,248,0.9);
+      background: radial-gradient(circle at 0% 0%, #38BDF8, #06B6D4);
+      color: #020617;
+      box-shadow: 0 20px 50px rgba(56,189,248,0.64);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 24px 60px rgba(56,189,248,0.72);
+      background: radial-gradient(circle at 0% 0%, #0EA5E9, #06B6D4);
+    }
+
+    .btn-ghost {
+      border: 1px solid rgba(148,163,184,0.7);
+      background: rgba(15,23,42,0.85);
+      color: var(--text-primary);
+      box-shadow: 0 14px 40px rgba(15,23,42,0.95);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(56,189,248,0.85);
+      background: rgba(15,23,42,1);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary-icon {
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    .hero-media {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      z-index: 1;
+    }
+
+    .hero-main-card {
+      position: relative;
+      width: 100%;
+      max-width: 360px;
+      border-radius: clamp(18px, 2vw, 22px);
+      overflow: hidden;
+      background:
+        radial-gradient(140% 180% at 0% 0%, rgba(56,189,248,0.4), rgba(15,23,42,1));
+      border: 1px solid rgba(148,163,184,0.7);
+      box-shadow: var(--shadow-soft);
+      transform: translateY(4px);
+      animation: float-main 18s ease-in-out infinite alternate;
+    }
+
+    .hero-main-image-wrap {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero-main-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.03);
+      transition: transform 380ms ease-out;
+    }
+
+    .hero-main-card::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 32%;
+      background: linear-gradient(to top, rgba(15,23,42,0.96), transparent);
+      pointer-events: none;
+    }
+
+    .hero-main-label {
+      position: absolute;
+      inset: auto 1.1rem 1.05rem 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      font-size: 0.75rem;
+      color: #E5E7EB;
+      z-index: 2;
+    }
+
+    .hero-main-label-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .hero-main-label-title {
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.73rem;
+    }
+
+    .hero-main-label-sub {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+
+    .hero-main-label-tag {
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(148,163,184,0.7);
+      background: rgba(15,23,42,0.85);
+      backdrop-filter: blur(12px);
+      font-size: 0.72rem;
+      white-space: nowrap;
+    }
+
+    .hero-stack {
+      position: absolute;
+      right: -18px;
+      bottom: -26px;
+      width: 54%;
+      max-width: 230px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      pointer-events: none;
+    }
+
+    .hero-stack-card {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #020617;
+      border: 1px solid rgba(148,163,184,0.7);
+      box-shadow: 0 18px 45px rgba(15,23,42,0.98);
+      transform-origin: center;
+      pointer-events: auto;
+      transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med);
+    }
+
+    .hero-stack-card:nth-child(1) {
+      transform: rotate(-7deg) translateY(5px);
+    }
+
+    .hero-stack-card:nth-child(2) {
+      transform: rotate(5deg) translateY(-8px);
+    }
+
+    .hero-stack-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.06);
+      transition: transform 320ms ease-out;
+    }
+
+    .hero-stack-card:hover {
+      border-color: rgba(56,189,248,0.9);
+      box-shadow: 0 24px 60px rgba(15,23,42,0.98);
+      transform: translateY(-4px) rotate(0deg) scale(1.01);
+    }
+
+    .hero-stack-card:hover img,
+    .hero-main-card:hover img {
+      transform: scale(1.08);
+    }
+
+    @media (max-width: 899.98px) {
+      .hero-main-card {
+        max-width: 420px;
+      }
+
+      .hero-main-image-wrap {
+        aspect-ratio: 4 / 3;
+      }
+
+      .hero-stack {
+        display: none;
+      }
+    }
+
+    @keyframes float-main {
+      0% {
+        transform: translateY(4px) translateX(0);
+      }
+      50% {
+        transform: translateY(-6px) translateX(-5px);
+      }
+      100% {
+        transform: translateY(2px) translateX(3px);
+      }
+    }
+
+    /* Bio */
+    .bio {
+      position: relative;
+    }
+
+    .bio::before {
+      content: "";
+      position: absolute;
+      inset: -80px -120px auto auto;
+      background: radial-gradient(circle at 80% 0%, rgba(56,189,248,0.16), transparent 60%);
+      opacity: 0.95;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .bio-grid {
+      display: grid;
+      gap: 2.2rem;
+      align-items: flex-start;
+    }
+
+    @media (min-width: 900px) {
+      .bio-grid {
+        grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.2fr);
+      }
+    }
+
+    .bio-tabs {
+      display: inline-flex;
+      padding: 0.22rem;
+      border-radius: var(--radius-full);
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.7);
+      box-shadow: 0 14px 40px rgba(15,23,42,0.96);
+      margin-bottom: 1.6rem;
+    }
+
+    .bio-tab {
+      padding: 0.45rem 1.2rem;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      background: transparent;
+      transition: background var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .bio-tab.active {
+      background: linear-gradient(to right, rgba(56,189,248,0.32), rgba(45,212,191,0.26));
+      color: var(--text-primary);
+      box-shadow: 0 12px 40px rgba(34,197,235,0.6);
+    }
+
+    .bio-pane {
+      display: none;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .bio-pane.active {
+      display: block;
+      animation: fade-in-up 260ms ease-out;
+    }
+
+    .bio-pane p {
+      margin: 0 0 1.1rem;
+    }
+
+    .bio-pane p:last-child {
+      margin-bottom: 0;
+    }
+
+    @keyframes fade-in-up {
+      from {
+        opacity: 0;
+        transform: translateY(4px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .bio-aside {
+      display: flex;
+      flex-direction: column;
+      gap: 1.3rem;
+    }
+
+    .bio-aside-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      background: var(--bg-soft);
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 18px 50px rgba(15,23,42,0.96);
+      padding: 1.1rem 1.3rem 1.2rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .bio-aside-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+      color: var(--text-primary);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(148,163,184,0.6);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      background: rgba(15,23,42,0.9);
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.4rem;
+    }
+
+    /* Portfolio / gallery */
+    .portfolio {
+      position: relative;
+    }
+
+    .portfolio::before {
+      content: "";
+      position: absolute;
+      inset: -120px auto auto -140px;
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle at 0% 0%, rgba(56,189,248,0.2), transparent 60%);
+      pointer-events: none;
+      opacity: 0.7;
+      z-index: -1;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      .gallery-grid {
+        gap: 2rem;
+      }
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      background: radial-gradient(140% 180% at 0% 0%, rgba(56,189,248,0.32), rgba(15,23,42,1));
+      border: 1px solid rgba(148,163,184,0.7);
+      box-shadow: var(--shadow-soft);
+      cursor: pointer;
+      transform: translateY(0);
+      transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med), background var(--transition-med);
+    }
+
+    .gallery-item:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    .gallery-image-wrapper {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      border-radius: 18px;
+      margin: 0.4rem;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 320ms ease-out, opacity 260ms ease-out;
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(140% 180% at 0% 0%, rgba(56,189,248,0.18), transparent 60%);
+      opacity: 0;
+      transition: opacity 260ms ease-out;
+      pointer-events: none;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 0.9rem 1.05rem 1.1rem;
+      background: linear-gradient(to top, rgba(15,23,42,0.98), rgba(15,23,42,0.3), transparent);
+      color: #E5E7EB;
+      font-size: 0.82rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 0.6rem;
+      transform: translateY(14px);
+      opacity: 0;
+      transition: opacity 200ms ease-out, transform 200ms ease-out;
+    }
+
+    .gallery-caption-text {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .gallery-caption-tag {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-8px);
+      border-color: rgba(56,189,248,0.9);
+      background: radial-gradient(160% 200% at 0% 0%, rgba(56,189,248,0.42), rgba(15,23,42,1));
+      box-shadow: 0 26px 70px rgba(15,23,42,0.98);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-item:hover .gallery-caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .gallery-caption {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(140% 200% at 50% 0%, rgba(15,23,42,0.98), rgba(15,23,42,0.98));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity var(--transition-med), visibility var(--transition-med);
+      z-index: 60;
+    }
+
+    .lightbox.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox-inner {
+      position: relative;
+      width: 100%;
+      max-width: min(960px, 95vw);
+      max-height: 95vh;
+      margin: 0 1.75rem;
+      padding: 1.1rem 1.3rem 0.95rem;
+      border-radius: 22px;
+      background: radial-gradient(140% 180% at 0% 0%, rgba(56,189,248,0.28), rgba(15,23,42,0.98));
+      border: 1px solid rgba(148,163,184,0.85);
+      box-shadow: 0 28px 80px rgba(0,0,0,0.9);
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .lightbox-image-wrap {
+      flex: 1;
+      border-radius: 18px;
+      overflow: visible;
+      background: #020617;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-image {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .lightbox-caption {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .lightbox-counter {
+      font-size: 0.78rem;
+      color: #6B7280;
+      white-space: nowrap;
+    }
+
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      top: 1.05rem;
+      background: rgba(15,23,42,0.95);
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(148,163,184,0.8);
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #E5E7EB;
+      font-size: 1.1rem;
+      box-shadow: 0 12px 35px rgba(15,23,42,0.98);
+      transition: transform var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .lightbox-close {
+      right: 1.1rem;
+      font-size: 1.3rem;
+    }
+
+    .lightbox-prev {
+      left: 1.1rem;
+    }
+
+    .lightbox-next {
+      right: 3.6rem;
+    }
+
+    .lightbox-close:hover,
+    .lightbox-prev:hover,
+    .lightbox-next:hover {
+      background: rgba(15,23,42,1);
+      border-color: rgba(56,189,248,0.9);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 600px) {
+      .lightbox-inner {
+        margin: 0 1rem;
+        padding: 1.1rem 1.1rem 0.95rem;
+      }
+
+      .lightbox-close,
+      .lightbox-prev,
+      .lightbox-next {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+        top: 0.8rem;
+      }
+
+      .lightbox-prev {
+        left: 0.8rem;
+      }
+
+      .lightbox-close {
+        right: 0.8rem;
+      }
+
+      .lightbox-next {
+        right: 3.1rem;
+      }
+
+      .lightbox-caption {
+        font-size: 0.8rem;
+      }
+    }
+
+    /* Approccio */
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .approach-card {
+      position: relative;
+      padding: 1.25rem 1.25rem 1.35rem;
+      border-radius: var(--radius-lg);
+      background:
+        radial-gradient(160% 220% at 0% 0%, rgba(56,189,248,0.26), rgba(15,23,42,1));
+      border: 1px solid rgba(148,163,184,0.7);
+      box-shadow: 0 20px 55px rgba(15,23,42,0.98);
+      overflow: hidden;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .approach-card::before {
+      content: "";
+      position: absolute;
+      inset: -40% -40% auto auto;
+      background: radial-gradient(circle at 100% 0%, rgba(56,189,248,0.28), transparent 60%);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .approach-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-full);
+      background: rgba(15,23,42,0.92);
+      border: 1px solid rgba(148,163,184,0.7);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      margin-bottom: 0.7rem;
+      box-shadow: 0 12px 32px rgba(15,23,42,0.96);
+    }
+
+    .approach-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 0 0 0.4rem;
+    }
+
+    .approach-text {
+      margin: 0;
+    }
+
+    /* Progetti / mostre */
+    .projects-wrapper {
+      margin-top: 2.5rem;
+      display: grid;
+      gap: 2rem;
+    }
+
+    @media (min-width: 900px) {
+      .projects-wrapper {
+        grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
+      }
+    }
+
+    .timeline {
+      border-left: 1px solid rgba(148,163,184,0.55);
+      margin-left: 0.35rem;
+      padding-left: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.05rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 0.1rem;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -1.7rem;
+      top: 0.3rem;
+      width: 9px;
+      height: 9px;
+      border-radius: var(--radius-full);
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(56,189,248,0.25);
+    }
+
+    .timeline-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 0 0 0.2rem;
+    }
+
+    .timeline-text {
+      margin: 0;
+    }
+
+    .projects-card {
+      border-radius: var(--radius-lg);
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.6);
+      box-shadow: 0 18px 50px rgba(15,23,42,0.96);
+      padding: 1.2rem 1.3rem 1.35rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .projects-card strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* Contatti */
+    .contact-grid {
+      display: grid;
+      gap: 2.5rem;
+      align-items: flex-start;
+    }
+
+    @media (min-width: 900px) {
+      .contact-grid {
+        grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.4fr);
+      }
+    }
+
+    .contact-card {
+      border-radius: var(--radius-lg);
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.6);
+      box-shadow: 0 20px 55px rgba(15,23,42,0.98);
+      padding: 1.35rem 1.5rem 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .contact-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      color: var(--text-primary);
+    }
+
+    .contact-card p {
+      margin: 0 0 0.75rem;
+    }
+
+    .contact-highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(148,163,184,0.6);
+      font-size: 0.78rem;
+      background: rgba(15,23,42,0.92);
+      color: var(--text-muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .contact-highlight svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .form-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-bottom: 1.05rem;
+      flex: 1 1 min(220px, 100%);
+    }
+
+    .field label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .field input,
+    .field textarea {
+      border-radius: 12px;
+      border: 1px solid rgba(148,163,184,0.6);
+      background: rgba(15,23,42,0.9);
+      padding: 0.6rem 0.75rem;
+      font-size: 0.9rem;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .field input:hover,
+    .field textarea:hover {
+      border-color: rgba(148,163,184,0.85);
+      background: rgba(15,23,42,0.95);
+    }
+
+    .field input:focus-visible,
+    .field textarea:focus-visible {
+      outline: none;
+      border-color: rgba(56,189,248,0.95);
+      box-shadow: 0 0 0 1px rgba(56,189,248,0.8), 0 14px 40px rgba(15,23,42,0.96);
+      background: rgba(15,23,42,1);
+    }
+
+    .field textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .form-note {
+      font-size: 0.78rem;
+      color: #6B7280;
+      margin: 0.35rem 0 0;
+    }
+
+    .form-status {
+      font-size: 0.82rem;
+      color: var(--accent-strong);
+      margin-top: 0.6rem;
+      min-height: 1.1em;
+    }
+
+    .btn-submit {
+      margin-top: 0.25rem;
+      padding: 0.7rem 1.3rem;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(56,189,248,0.9);
+      background: radial-gradient(circle at 0% 0%, #38BDF8, #06B6D4);
+      color: #020617;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 18px 45px rgba(56,189,248,0.62);
+      transition: transform var(--transition-med), box-shadow var(--transition-med), background var(--transition-med), border-color var(--transition-med);
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 22px 55px rgba(56,189,248,0.72);
+      background: radial-gradient(circle at 0% 0%, #0EA5E9, #06B6D4);
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid rgba(148,163,184,0.35);
+      background: radial-gradient(140% 200% at 0% 0%, rgba(15,23,42,0.98), rgba(15,23,42,0.98));
+      padding: 1.8rem 0 2.2rem;
+      font-size: 0.78rem;
+      color: #6B7280;
+      margin-top: 1rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.6rem 1.5rem;
+      justify-content: space-between;
+    }
+
+    .footer-inner span {
+      white-space: nowrap;
+    }
+
+    @media (max-width: 640px) {
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav-bar">
+    <div class="logo">
+      <div class="logo-mark">GD</div>
+      <div class="logo-text">
+        <div class="logo-title">Gabriele De Biasio</div>
+        <div class="logo-subtitle">Fotografia &amp; paesaggio</div>
+      </div>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Apri il menu" aria-expanded="false">
+      <span class="nav-toggle-lines" aria-hidden="true"></span>
+    </button>
+    <nav class="nav-links" aria-label="Navigazione principale">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#portfolio" class="nav-link">Portfolio</a>
+      <a href="#bio" class="nav-link">Biografia</a>
+      <a href="#approccio" class="nav-link">Approccio</a>
+      <a href="#contatti" class="nav-link">Contatti</a>
+    </nav>
+  </div>
+</header>
+
+<main class="main">
+  <!-- Hero -->
+  <section id="home" class="hero section" aria-labelledby="hero-title">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <div class="hero-eyebrow">Paesaggi d’acqua, nebbie, superfici che ascoltano</div>
+        <h1 id="hero-title" class="hero-title">Gabriele De Biasio</h1>
+        <p class="hero-subtitle">
+          Artista e fotografo italiano. La sua ricerca attraversa fiumi, lagune e risorgive,
+          dove l’acqua diventa spazio di quiete, riflessione e memoria condivisa.
+        </p>
+
+        <div class="hero-meta" aria-label="Informazioni su Gabriele">
+          <div class="hero-meta-item">
+            <span class="hero-meta-dot" aria-hidden="true"></span>
+            <span>Paesaggio &amp; luoghi dell’acqua</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-dot" aria-hidden="true"></span>
+            <span>Friuli Venezia Giulia, Italia</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-dot" aria-hidden="true"></span>
+            <span>Fotografia &amp; scrittura breve</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#portfolio" class="btn-primary">
+            Esplora il portfolio
+            <span class="btn-primary-icon" aria-hidden="true">↗</span>
+          </a>
+          <a href="#bio" class="btn-ghost">Leggi la sua storia</a>
+        </div>
+      </div>
+
+      <div class="hero-media" aria-hidden="true">
+        <div class="hero-main-card">
+          <div class="hero-main-image-wrap">
+            <img src="Foto/PXL_20250502_061731202.RAW-01.COVER.jpg" alt="Fotografia di paesaggio di Gabriele De Biasio, con acqua e nebbia.">
+          </div>
+          <div class="hero-main-label">
+            <div class="hero-main-label-left">
+              <div class="hero-main-label-title">Serie</div>
+              <div class="hero-main-label-sub">Luoghi sospesi tra acqua e cielo</div>
+            </div>
+            <div class="hero-main-label-tag">Fotografia di paesaggio</div>
+          </div>
+        </div>
+
+        <div class="hero-stack">
+          <div class="hero-stack-card">
+            <img src="Foto/Tramonto.jpg" alt="Fotografia di paesaggio di Gabriele De Biasio.">
+          </div>
+          <div class="hero-stack-card">
+            <img src="Foto/20230613_151540-01.jpeg" alt="Fotografia di paesaggio di Gabriele De Biasio.">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bio -->
+  <section id="bio" class="section bio" aria-labelledby="bio-title">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-kicker">Biografia</p>
+        <h2 id="bio-title" class="section-title">Due modi di raccontare lo stesso sguardo</h2>
+        <p class="section-intro">
+          Una versione essenziale, pensata per contesti ufficiali, e una più personale e narrativa.
+          Entrambe nascono da un rapporto diretto con il paesaggio e con l’acqua.
+        </p>
+      </div>
+
+      <div class="bio-grid">
+        <div>
+          <div class="bio-tabs" role="tablist" aria-label="Seleziona la versione della biografia">
+            <button class="bio-tab active" type="button" role="tab" aria-selected="true" aria-controls="bio-essenziale" data-target="bio-essenziale">
+              Bio essenziale
+            </button>
+            <button class="bio-tab" type="button" role="tab" aria-selected="false" aria-controls="bio-personale" data-target="bio-personale">
+              Bio personale
+            </button>
+          </div>
+
+          <article id="bio-essenziale" class="bio-pane active" role="tabpanel" aria-label="Biografia essenziale">
+            <p>
+              Gabriele De Biasio è un artista e fotografo italiano. La sua ricerca si concentra principalmente
+              sul paesaggio, con un’attenzione particolare all’acqua come elemento di quiete, riflessione e memoria.
+              Fiumi, lagune, nebbie e superfici specchianti diventano luoghi sospesi, in cui il tempo rallenta e lo
+              sguardo è invitato alla contemplazione.
+            </p>
+            <p>
+              La sua fotografia evita l’effetto spettacolare, privilegiando un approccio intimo e silenzioso,
+              dove la natura non è mai protagonista assoluta ma spazio di ascolto e attesa. Parallelamente alla
+              fotografia, Gabriele esplora anche la scrittura breve e poetica come estensione del proprio linguaggio visivo.
+            </p>
+            <p>
+              Ha partecipato a mostre collettive e personali in ambito locale, nazionale e internazionale,
+              collaborando con critici d’arte, gallerie e realtà culturali. Il suo percorso è in continua evoluzione,
+              guidato dalla sperimentazione e da un dialogo costante tra territorio, esperienza personale e ricerca artistica.
+            </p>
+          </article>
+
+          <article id="bio-personale" class="bio-pane" role="tabpanel" aria-label="Biografia personale">
+            <p>
+              Gabriele De Biasio è un artista e fotografo italiano, con una ricerca visiva legata al paesaggio
+              e ai luoghi dell’acqua. Fiumi, risorgive, lagune e nebbie sono per lui spazi di sospensione,
+              dove il tempo si fa lento e l’immagine diventa occasione di ascolto.
+            </p>
+            <p>
+              La sua fotografia nasce dall’osservazione silenziosa e da un rapporto diretto con il territorio,
+              in particolare quello del Friuli Venezia Giulia, ma si apre anche a viaggi e esplorazioni oltre confine.
+              Predilige immagini essenziali, naturali, poco costruite, in cui la presenza umana è spesso suggerita più che mostrata.
+            </p>
+            <p>
+              Accanto alla fotografia, Gabriele utilizza la parola scritta in forma breve e poetica,
+              come ulteriore strumento di racconto. Ha partecipato a diverse mostre collettive e personali,
+              ricevendo critiche e riconoscimenti, e continua a sviluppare il proprio lavoro come un percorso aperto,
+              fatto di ricerca, sperimentazione e dialogo con chi osserva.
+            </p>
+          </article>
+        </div>
+
+        <aside class="bio-aside" aria-label="Note sul lavoro di Gabriele">
+          <div class="bio-aside-card">
+            <div class="bio-aside-title">Territori e paesaggi</div>
+            <p>
+              Luoghi d’acqua, linee sottili tra terra e cielo, nebbie che attenuano i confini:
+              il paesaggio è un pretesto per fermarsi e ascoltare.
+            </p>
+            <div class="pill-row" aria-label="Temi ricorrenti">
+              <span class="pill"><span class="pill-dot" aria-hidden="true"></span>Fiumi e risorgive</span>
+              <span class="pill"><span class="pill-dot" aria-hidden="true"></span>Lagune e superfici specchianti</span>
+              <span class="pill"><span class="pill-dot" aria-hidden="true"></span>Tempo sospeso</span>
+            </div>
+          </div>
+
+          <div class="bio-aside-card">
+            <div class="bio-aside-title">Linguaggi</div>
+            <p>
+              Fotografia e scrittura breve dialogano tra loro, come due modi complementari di abitare le immagini.
+            </p>
+            <div class="pill-row" aria-label="Forme espressive">
+              <span class="pill"><span class="pill-dot" aria-hidden="true"></span>Fotografia di paesaggio</span>
+              <span class="pill"><span class="pill-dot" aria-hidden="true"></span>Testi poetici brevi</span>
+              <span class="pill"><span class="pill-dot" aria-hidden="true"></span>Ricerca personale</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="section portfolio" aria-labelledby="portfolio-title">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-kicker">Portfolio selezionato</p>
+        <h2 id="portfolio-title" class="section-title">Luoghi sospesi tra acqua e nebbia</h2>
+        <p class="section-intro">
+          Una piccola selezione di immagini che attraversano fiumi, lagune e superfici specchianti.
+          Fotografie che non cercano l’effetto spettacolare, ma il silenzio di ciò che resta.
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+        <figure class="gallery-item" tabindex="0">
+          <div class="gallery-image-wrapper">
+            <img src="Foto/16_Dove_il_tempo_gira_piano.jpeg" data-full="Foto/16_Dove_il_tempo_gira_piano.jpeg" alt="Paesaggio di Gabriele De Biasio">
+            <div class="gallery-overlay"></div>
+          </div>
+          <figcaption class="gallery-caption">
+            <span class="gallery-caption-text">Dove il tempo gira piano</span>
+            <span class="gallery-caption-tag">Paesaggio</span>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item" tabindex="0">
+          <div class="gallery-image-wrapper">
+            <img src="Foto/1_confine_d'acque.jpg" data-full="Foto/1_confine_d'acque.jpg" alt="Paesaggio di Gabriele De Biasio">
+            <div class="gallery-overlay"></div>
+          </div>
+          <figcaption class="gallery-caption">
+            <span class="gallery-caption-text">Confine d'acque</span>
+            <span class="gallery-caption-tag">Acqua</span>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item" tabindex="0">
+          <div class="gallery-image-wrapper">
+            <img src="Foto/2_silenzio_riflesso.jpg" data-full="Foto/2_silenzio_riflesso.jpg" alt="Paesaggio di Gabriele De Biasio">
+            <div class="gallery-overlay"></div>
+          </div>
+          <figcaption class="gallery-caption">
+            <span class="gallery-caption-text">Silenzio riflesso</span>
+            <span class="gallery-caption-tag">Riflessi</span>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item" tabindex="0">
+          <div class="gallery-image-wrapper">
+            <img src="Foto/3_appesa_al_tempo.jpeg" data-full="Foto/3_appesa_al_tempo.jpeg" alt="Paesaggio di Gabriele De Biasio">
+            <div class="gallery-overlay"></div>
+          </div>
+          <figcaption class="gallery-caption">
+            <span class="gallery-caption-text">Appesa al tempo</span>
+            <span class="gallery-caption-tag">Tempo</span>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item" tabindex="0">
+          <div class="gallery-image-wrapper">
+            <img src="Foto/8_Tra_l’acciaio_e_l’acqua.jpg" data-full="Foto/8_Tra_l’acciaio_e_l’acqua.jpg" alt="Paesaggio di Gabriele De Biasio">
+            <div class="gallery-overlay"></div>
+          </div>
+          <figcaption class="gallery-caption">
+            <span class="gallery-caption-text">Tra l'acciaio e l'acqua</span>
+            <span class="gallery-caption-tag">Contrasti</span>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item" tabindex="0">
+          <div class="gallery-image-wrapper">
+            <img src="Foto/9_Il_respiro_della_foschia.jpg" data-full="Foto/9_Il_respiro_della_foschia.jpg" alt="Paesaggio di Gabriele De Biasio">
+            <div class="gallery-overlay"></div>
+          </div>
+          <figcaption class="gallery-caption">
+            <span class="gallery-caption-text">Il respiro della foschia</span>
+            <span class="gallery-caption-tag">Atmosfera</span>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item" tabindex="0">
+          <div class="gallery-image-wrapper">
+            <img src="Foto/fotor_1731340155239.jpg" data-full="Foto/fotor_1731340155239.jpg" alt="Paesaggio di Gabriele De Biasio">
+            <div class="gallery-overlay"></div>
+          </div>
+          <figcaption class="gallery-caption">
+            <span class="gallery-caption-text">Sfumature</span>
+            <span class="gallery-caption-tag">Paesaggio</span>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item" tabindex="0">
+          <div class="gallery-image-wrapper">
+            <img src="Foto/IMG_20200825_090700.jpg" data-full="Foto/IMG_20200825_090700.jpg" alt="Paesaggio di Gabriele De Biasio">
+            <div class="gallery-overlay"></div>
+          </div>
+          <figcaption class="gallery-caption">
+            <span class="gallery-caption-text">Luce del mattino</span>
+            <span class="gallery-caption-tag">Luce</span>
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item" tabindex="0">
+          <div class="gallery-image-wrapper">
+            <img src="Foto/Francia 1.jpg" data-full="Foto/Francia 1.jpg" alt="Paesaggio di Gabriele De Biasio">
+            <div class="gallery-overlay"></div>
+          </div>
+          <figcaption class="gallery-caption">
+            <span class="gallery-caption-text">Orizzonti lontani</span>
+            <span class="gallery-caption-tag">Viaggio</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Approccio -->
+  <section id="approccio" class="section" aria-labelledby="approach-title">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-kicker">Approccio</p>
+        <h2 id="approach-title" class="section-title">Fotografia come forma di ascolto</h2>
+        <p class="section-intro">
+          Un lavoro che cresce lentamente, in dialogo con i luoghi, con il tempo e con chi guarda.
+        </p>
+      </div>
+
+      <div class="approach-grid">
+        <article class="approach-card">
+          <div class="approach-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none">
+              <path d="M3 14c2-.8 4-1.2 6-1.2 3 0 5 .9 8 1.6 2 .5 4 .9 4 1.6 0 1-2 2-4 2-3 0-5-1.1-8-1.1S5 18 3 18c-2 0-3-1-3-1.8C0 15.5 1 14.8 3 14Z" fill="#38BDF8" opacity="0.7"/>
+              <path d="M3 10c2-.8 4-1.2 6-1.2 3 0 5 .9 8 1.6 2 .5 4 .9 4 1.6 0 1-2 2-4 2-3 0-5-1.1-8-1.1S5 14 3 14c-2 0-3-1-3-1.8C0 11.5 1 10.8 3 10Z" fill="#0EA5E9" opacity="0.55"/>
+            </svg>
+          </div>
+          <h3 class="approach-title">Acqua come memoria</h3>
+          <p class="approach-text">
+            Fiumi, risorgive, lagune: l’acqua è un archivio silenzioso di passaggi, stagioni, gesti.
+            Le immagini cercano di restituire questa stratificazione, senza sovraccaricarla di effetti.
+          </p>
+        </article>
+
+        <article class="approach-card">
+          <div class="approach-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none">
+              <path d="M4 12.5C7 10 9.5 9 12 9s5 1 8 3.5" stroke="#38BDF8" stroke-width="1.3" stroke-linecap="round"/>
+              <circle cx="7" cy="8" r="1" fill="#A5B4FC"/>
+              <circle cx="17" cy="7" r="1" fill="#A5B4FC"/>
+            </svg>
+          </div>
+          <h3 class="approach-title">Tempo rallentato</h3>
+          <p class="approach-text">
+            Le fotografie nascono da un’osservazione lenta, da cammini ripetuti negli stessi luoghi.
+            Il paesaggio viene attraversato più volte, fino a trovare il momento in cui si lascia guardare.
+          </p>
+        </article>
+
+        <article class="approach-card">
+          <div class="approach-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none">
+              <rect x="4" y="6" width="16" height="12" rx="2.5" stroke="#38BDF8" stroke-width="1.3"/>
+              <path d="M7 15h10M7 11.5h4" stroke="#A5B4FC" stroke-width="1.1" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="approach-title">Immagine e parola</h3>
+          <p class="approach-text">
+            Accanto alla fotografia, brevi testi poetici accompagnano le serie e i progetti,
+            come appunti di viaggio che non spiegano, ma aprono spazî di lettura.
+          </p>
+        </article>
+
+        <article class="approach-card">
+          <div class="approach-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none">
+              <path d="M6 18.5V7.8c0-.9.7-1.6 1.6-1.8l8.4-1.3v12.2c0 .9-.7 1.6-1.6 1.8L6 18.5Z" fill="#020617" stroke="#38BDF8" stroke-width="1.2"/>
+              <path d="M9 9.5h5" stroke="#A5B4FC" stroke-width="1.1" stroke-linecap="round"/>
+              <path d="M9 12h3.5" stroke="#A5B4FC" stroke-width="1.1" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="approach-title">Ricerca in dialogo</h3>
+          <p class="approach-text">
+            Mostre, confronti con critici d’arte e realtà culturali contribuiscono a tenere aperta
+            la ricerca, in un dialogo costante tra territorio, esperienza personale e sguardi esterni.
+          </p>
+        </article>
+      </div>
+
+      <div class="projects-wrapper" aria-label="Progetti e mostre">
+        <div>
+          <h3 class="approach-title" style="margin-top:2.3rem; margin-bottom:0.6rem;">Mostre e collaborazioni</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <p class="timeline-title">Mostre collettive e personali</p>
+              <p class="timeline-text">
+                Partecipazioni in ambito locale, nazionale e internazionale, con progetti dedicati
+                al paesaggio e ai luoghi dell’acqua.
+              </p>
+            </div>
+            <div class="timeline-item">
+              <p class="timeline-title">Dialogo con il sistema dell’arte</p>
+              <p class="timeline-text">
+                Collaborazioni con critici d’arte, gallerie e realtà culturali che hanno sostenuto
+                e messo in relazione la sua ricerca con altri linguaggi contemporanei.
+              </p>
+            </div>
+            <div class="timeline-item">
+              <p class="timeline-title">Percorsi in evoluzione</p>
+              <p class="timeline-text">
+                Progetti aperti, pensati come tappe di un lavoro in continua trasformazione,
+                dove ogni mostra diventa occasione di rilettura e approfondimento.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="projects-card">
+          <p>
+            <strong>Mostre e pubblicazioni.</strong> La pratica espositiva di Gabriele è legata
+            a contesti diversi – dal territorio in cui vive fino ad ambiti nazionali e internazionali –
+            con particolare attenzione a realtà che lavorano sul paesaggio, sulla memoria dei luoghi
+            e sulle trasformazioni silenziose dei territori d’acqua.
+          </p>
+          <p>
+            <strong>Collaborazioni.</strong> Negli anni ha intrecciato relazioni con curatori, critici
+            d’arte e operatori culturali, portando la sua fotografia in dialogo con ricerche affini
+            e con linguaggi vicini alla poesia visiva e alla narrazione breve.
+          </p>
+          <p>
+            <strong>Ricerca in corso.</strong> Ogni nuova serie nasce da cammini, appunti, ascolti.
+            Il lavoro resta volutamente aperto: non una raccolta di immagini finite, ma un
+            percorso che si ridefinisce attraverso il confronto con chi guarda.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contatti -->
+  <section id="contatti" class="section" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-kicker">Contatti</p>
+        <h2 id="contact-title" class="section-title">Per dialoghi, progetti e collaborazioni</h2>
+        <p class="section-intro">
+          Per richieste, inviti a mostre, proposte di residenze o semplici scambi di sguardi.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-highlight">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 7c0-.6.4-1 1-1h14c.6 0 1 .4 1 1v10c0 .6-.4 1-1 1H5c-.6 0-1-.4-1-1V7Z" stroke="#38BDF8" stroke-width="1.3" stroke-linejoin="round"/>
+              <path d="M5.5 8 11 12c.6.5 1.4.5 2 0l5.5-4" stroke="#A5B4FC" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            gabriele.debiasio.art@gmail.com
+          </div>
+          <h3>Come entrare in contatto</h3>
+          <p>
+            Qui possono trovare posto indirizzo e-mail, eventuale sito ufficiale, canali social
+            o altri riferimenti utili. È uno spazio pensato per essere personalizzato in base
+            alle esigenze future.
+          </p>
+          <p>
+            Il lavoro di Gabriele è aperto a confronti, letture portfolio, inviti a progetti
+            legati al paesaggio, alla memoria dei luoghi e alle pratiche di narrazione visiva.
+          </p>
+        </div>
+
+        <div class="contact-card" aria-label="Modulo di contatto">
+          <h3>Scrivi un messaggio</h3>
+          <form id="contact-form" action="mailto:gabriele.debiasio.art@gmail.com?subject=Messaggio%20dal%20sito%20-%20Gabriele%20De%20Biasio" method="POST" enctype="text/plain" novalidate>
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Nome</label>
+                <input id="name" name="name" type="text" autocomplete="name" placeholder="Il tuo nome" required>
+              </div>
+              <div class="field">
+                <label for="email">E-mail</label>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="gabriele.debiasio.art@gmail.com" required>
+              </div>
+            </div>
+            <div class="field">
+              <label for="message">Messaggio</label>
+              <textarea id="message" name="message" placeholder="Scrivi qui la tua richiesta, proposta o pensiero." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Invia il messaggio</button>
+            <p class="form-note">
+              Questo modulo apre il client di posta predefinito del tuo dispositivo e prepara un'e-mail a questo indirizzo. Se preferisci un invio automatico senza client di posta, in futuro si può collegare a un servizio (Formspree, Netlify Forms, ecc.).
+            </p>
+            <p id="form-status" class="form-status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="lightbox-inner">
+    <button type="button" class="lightbox-prev" aria-label="Immagine precedente">&#10094;</button>
+    <button type="button" class="lightbox-next" aria-label="Immagine successiva">&#10095;</button>
+    <button type="button" class="lightbox-close" aria-label="Chiudi immagine">&times;</button>
+    <div class="lightbox-image-wrap">
+      <img class="lightbox-image" src="" alt="">
+    </div>
+    <div class="lightbox-caption">
+      <span class="lightbox-caption-text"></span>
+      <span class="lightbox-counter"></span>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>© <span id="year"></span> Gabriele De Biasio. Tutti i diritti riservati.</span>
+    <span>Testi e immagini: Gabriele De Biasio · Pagina di presentazione personale.</span>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const header = document.querySelector('.site-header');
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const navLinkEls = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id]');
+    const body = document.body;
+
+    // Header scroll effect
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+
+    // Mobile nav toggle
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = header.classList.toggle('nav-open');
+        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    }
+
+    // Smooth scroll for nav links
+    navLinkEls.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            const headerOffset = header.offsetHeight + 12;
+            const rect = target.getBoundingClientRect();
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const targetTop = rect.top + scrollTop - headerOffset;
+
+            window.scrollTo({
+              top: targetTop,
+              behavior: 'smooth'
+            });
+          }
+        }
+        // Close mobile nav
+        header.classList.remove('nav-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Active nav link on scroll
+    const navById = {};
+    navLinkEls.forEach(link => {
+      const id = (link.getAttribute('href') || '').replace('#', '');
+      if (id) {
+        navById[id] = link;
+      }
+    });
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            Object.values(navById).forEach(l => l.classList.remove('active'));
+            if (navById[id]) {
+              navById[id].classList.add('active');
+            }
+          }
+        });
+      }, {
+        rootMargin: '-55% 0px -40% 0px',
+        threshold: 0.1
+      });
+
+      sections.forEach(section => observer.observe(section));
+    }
+
+    // Bio tabs
+    const bioTabs = document.querySelectorAll('.bio-tab');
+    const bioPanes = document.querySelectorAll('.bio-pane');
+
+    bioTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetId = tab.dataset.target;
+        bioTabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        bioPanes.forEach(p => p.classList.remove('active'));
+
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        const pane = document.getElementById(targetId);
+        if (pane) {
+          pane.classList.add('active');
+        }
+      });
+    });
+
+    // Gallery lightbox
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = lightbox ? lightbox.querySelector('.lightbox-image') : null;
+    const lightboxCaption = lightbox ? lightbox.querySelector('.lightbox-caption-text') : null;
+    const lightboxCounter = lightbox ? lightbox.querySelector('.lightbox-counter') : null;
+    const closeBtn = lightbox ? lightbox.querySelector('.lightbox-close') : null;
+    const prevBtn = lightbox ? lightbox.querySelector('.lightbox-prev') : null;
+    const nextBtn = lightbox ? lightbox.querySelector('.lightbox-next') : null;
+    let currentIndex = 0;
+
+    const openLightbox = (index) => {
+      if (!lightbox || !lightboxImage || !lightboxCaption || !lightboxCounter) return;
+      const item = galleryItems[index];
+      if (!item) return;
+
+      const img = item.querySelector('img');
+      const captionEl = item.querySelector('.gallery-caption-text');
+      const fullSrc = img.getAttribute('data-full') || img.src;
+
+      lightboxImage.src = fullSrc;
+      lightboxImage.alt = img.alt || '';
+      lightboxCaption.textContent = captionEl ? captionEl.textContent : '';
+      lightboxCounter.textContent = (index + 1) + ' / ' + galleryItems.length;
+
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      body.style.overflow = 'hidden';
+      currentIndex = index;
+    };
+
+    const closeLightbox = () => {
+      if (!lightbox) return;
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      body.style.overflow = '';
+    };
+
+    const showNext = () => {
+      if (!galleryItems.length) return;
+      const nextIndex = (currentIndex + 1) % galleryItems.length;
+      openLightbox(nextIndex);
+    };
+
+    const showPrev = () => {
+      if (!galleryItems.length) return;
+      const prevIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+      openLightbox(prevIndex);
+    };
+
+    galleryItems.forEach((item, index) => {
+      item.addEventListener('click', () => openLightbox(index));
+      item.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLightbox(index);
+        }
+      });
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeLightbox);
+    }
+    if (prevBtn) {
+      prevBtn.addEventListener('click', showPrev);
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', showNext);
+    }
+
+    if (lightbox) {
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox || !lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') {
+        closeLightbox();
+      } else if (e.key === 'ArrowRight') {
+        showNext();
+      } else if (e.key === 'ArrowLeft') {
+        showPrev();
+      }
+    });
+
+    // Footer year
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+  });
+</script>
+</body>
+</html>
